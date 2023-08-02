@@ -1010,6 +1010,8 @@ class VariantSelects extends HTMLElement {
   updateURL() {
     if (!this.currentVariant || this.dataset.updateUrl === 'false') return;
     window.history.replaceState({}, '', `${this.dataset.url}?variant=${this.currentVariant.id}`);
+    //code to unselect variant on page reload 
+    location.reload();
   }
 
   updateShareUrl() {
