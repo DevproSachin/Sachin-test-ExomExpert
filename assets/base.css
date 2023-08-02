@@ -3512,5 +3512,9 @@ details-disclosure > details {
   }
 }
 label.cmnvrnt {
+<<<<<<< HEAD
   display: none;
+=======
+    display: none;
+>>>>>>> 0a4f031d629d394cc32e7cea90a4a000890052e1
 }

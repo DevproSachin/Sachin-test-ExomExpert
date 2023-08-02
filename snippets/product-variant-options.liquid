@@ -58,7 +58,6 @@
       {% if option_disabled %}
         class="disabled"
       {% endif %}
-    >
     {% if product.variants[forloop.index0].image !=blank and option.name == 'size' %}
     <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style="background-image:url({{ product.variants[forloop.index0].image | img_url: ''  }});"> </label>
       {% else %}
