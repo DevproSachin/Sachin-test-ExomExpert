@@ -59,7 +59,9 @@
         class="disabled"
       {% endif %}
     >
-   
+    {% if product.variants[forloop.index0].image !=blank and option.name == 'size' %}
+    <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style="background-image:url({{ product.variants[forloop.index0].image | img_url: ''  }});"> </label>
+      {% else %}
           {% if product.variants[forloop.index0].metafields.custom.color and option.name == 'Color' %}
                   <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style="background-color:{{ product.variants[forloop.index0].metafields.custom.color  }}"> </label>
             {% endif %}
@@ -67,7 +69,7 @@
       {{ value -}}
       <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
     </label>
-    
+    {% endif %}
   {%- elsif block.settings.picker_type == 'dropdown' -%}
     <option
       value="{{ value | escape }}"
