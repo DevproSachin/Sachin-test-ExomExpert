@@ -1257,3 +1257,25 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+
+// Wait for the page to load
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Get all the variant image elements
+  var variantImages = document.querySelectorAll('.variant-image');
+
+  // Hide all the variant images by default
+  variantImages.forEach(function(image) {
+    image.style.display = 'none';
+  });
+
+  // Show the variant image for the selected variant
+  var variantSelect = document.getElementById('variant-select');
+  variantSelect.addEventListener('change', function() {
+    var selectedVariant = variantSelect.value;
+    var variantImage = document.querySelector('.variant-image-' + selectedVariant);
+    variantImage.style.display = 'block';
+  });
+
+});
