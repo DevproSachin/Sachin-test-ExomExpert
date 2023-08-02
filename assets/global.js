@@ -1257,3 +1257,22 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+
+// function to clear selected variants
+function clearSelectedVariants() {
+  // select all variant option selects
+  var $variantSelectors = $('.single-option-selector'); 
+
+  // loop through each select and set the selected value to the first option (which is usually the default)
+  $variantSelectors.each(function() {
+    $(this).val($(this).find('option:first').val());
+  });
+} 
+
+// detect page refresh event
+$(window).on('beforeunload', function() {
+  // clear selected variants
+  clearSelectedVariants();
+});
+
