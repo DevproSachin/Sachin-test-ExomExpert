@@ -1260,21 +1260,24 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define('product-recommendations', ProductRecommendations);
 
+// Wait for the page to load
+document.addEventListener('DOMContentLoaded', function() {
 
-// function to clear selected variants
-function clearSelectedVariants() {
-  // select all variant option selects
-  var $variantSelectors = $('.single-option-selector'); 
+  // Get all the variant image elements
+  var variantImages = document.querySelectorAll('.variant-image');
 
-  // loop through each select and set the selected value to the first option (which is usually the default)
-  $variantSelectors.each(function() {
-    $(this).val($(this).find('option:first').val());
+  // Hide all the variant images by default
+  variantImages.forEach(function(image) {
+    image.style.display = 'none';
   });
-} 
 
-// detect page refresh event
-$(window).on('beforeunload', function() {
-  // clear selected variants
-  clearSelectedVariants();
+  // Show the variant image for the selected variant
+  var variantSelect = document.getElementById('variant-select');
+  variantSelect.addEventListener('change', function() {
+    var selectedVariant = variantSelect.value;
+    var variantImage = document.querySelector('.variant-image-' + selectedVariant);
+    variantImage.style.display = 'block';
+  });
+
 });
 
