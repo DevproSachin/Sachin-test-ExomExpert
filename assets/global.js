@@ -1285,7 +1285,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // function to clear selected variants
 function clearSelectedVariants() {
   // select all variant option selects
-  var $variantSelectors = $('.single-option-selector'); 
+  var $variantSelectors = $('.select__select'); 
 
   // loop through each select and set the selected value to the first option (which is usually the default)
   $variantSelectors.each(function() {
